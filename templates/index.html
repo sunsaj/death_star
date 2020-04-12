@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>  
+    <h2>Hello</h2>
+    <ul>
+        {% for name in names %}
+        <li>{{ name.name }} <a href='/delete/{{name.id}}' class="button">Delete<a> <br> 
+            <form method='POST' action='update'>
+                <input type='hidden' name='id' value='{{name.id}}' > 
+                Update Name : <input type='text' name='name' value ="{{ name.name}}">
+            <input type='submit' value='Update'></form></li>
+        {% endfor %}
+    </ul>
+    
+    
+    <form method='POST' action='insert'>
+        Name : <input type='text' name='name'><br>
+        <input type='submit' value='ADD'>
+    </form>
+</body>
+</html>
